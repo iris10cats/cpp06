@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp
+%.o: %.cpp ScalatConverter.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

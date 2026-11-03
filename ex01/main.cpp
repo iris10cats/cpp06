@@ -11,9 +11,10 @@ int main() {
     uintptr_t integer;
 
   //  std::cout<< integer<<std::endl;
+    std::cout << "data : " << data.value << " " << data.name << std::endl;
+    std::cout << "pointer: " << &data <<std::endl;
     integer = Serializer::serialize(&data);
-    std::cout << "Serialized integer: " << std::endl;
-    std::cout << integer << std::endl;
+    std::cout << "Serialized integer: " << integer << std::endl;
 
     restored = Serializer::deserialize(integer);
     std::cout << "Restored pointer: " << restored << std::endl;

@@ -12,16 +12,9 @@
 
 ScalarConverter::ScalarConverter() {}
 
-ScalarConverter::ScalarConverter(const ScalarConverter& other)
-{
-    (void)other;
-}
+ScalarConverter::ScalarConverter(const ScalarConverter& other){}
 
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
-{
-    (void)other;
-    return *this;
-}
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {}
 
 ScalarConverter::~ScalarConverter() {}
 
@@ -63,11 +56,12 @@ static bool isFloatLiteral(const std::string& s)
     if (s.empty() || s[s.size() - 1] != 'f')
         return false;
 
+
+    std::string str = s.substr(0, s.size() - 1);
     errno = 0;
     char* end = NULL;
-    float value = std::strtof(s.c_str(), &end);
-    (void)value;
-    return end != s.c_str() && *end == '\0' && errno != ERANGE;
+    std::strtof(str.c_str(), &end);
+    return end != str.c_str() && *end == '\0' && errno != ERANGE;
 }
 
 static bool isDoubleLiteral(const std::string& s)
